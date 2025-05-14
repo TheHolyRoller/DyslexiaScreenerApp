@@ -1,6 +1,6 @@
 'use client';
 
-import { Inter } from "next/font/google";
+import { Inter, Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import { UserProvider } from "./lib/context/UserContext";
 import { QuizProvider } from "./lib/context/QuizContext";
@@ -14,6 +14,13 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+// Add Josefin Sans font
+const josefinSans = Josefin_Sans({
+  subsets: ["latin"],
+  variable: "--font-josefin-sans",
+  display: "swap",
+});
+
 export default function RootLayout({ children }) {
   
   
@@ -24,7 +31,7 @@ export default function RootLayout({ children }) {
         <title>Dyslexia Quiz App</title>
         <meta name="description" content="A quiz application to help identify signs of dyslexia" />
       </head>
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} ${josefinSans.variable} antialiased`}>
       <Navbar/>
         <UserProvider>
           <QuizProvider>

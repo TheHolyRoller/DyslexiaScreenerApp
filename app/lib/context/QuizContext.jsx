@@ -4,12 +4,12 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useUser } from './UserContext';
-import { databases } from '../appwrite';
+import { databases, appwriteConfig } from '../appwrite';
 
-// Environment variable checks
-const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
-const QUESTION_COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_QUESTION_COLLECTION_ID;
-const WEIGHTS_COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_WEIGHT_COLLECTION_ID;
+// Use configuration from appwrite.js instead of environment variables directly
+const DATABASE_ID = appwriteConfig.databaseID;
+const QUESTION_COLLECTION_ID = appwriteConfig.questionCollectionID;
+const WEIGHTS_COLLECTION_ID = appwriteConfig.weightsCollectionID;
 
 // Log environment variables (without sensitive values)
 console.log('🔍 Appwrite Configuration:', {
