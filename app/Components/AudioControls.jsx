@@ -45,7 +45,6 @@ function AudioControls() {
 
         </div>
 
-      
 
         <div className={au.buttonStackContainer}  onClick={() => handleSoundChoice(false)}>
         <div className={au.button} id={au.offButton}  onClick={() => handleSoundChoice(false)}>
