@@ -7,11 +7,14 @@ import { useRouter } from 'next/navigation';
 import q from '../Styles/Quiz.module.css';
 import Image from 'next/image';
 import { QuizAnswer } from '../Components/QuizAnswer';
-
-
 import QuizCard from '../Components/QuizCard';
 
+
+
+
 export default function Quiz() {
+
+    
     const router = useRouter();
     const { name, sound, userAge } = useUser();
     const { questions, currentQuestion, handleAnswer, currentIndex, quizLength, gif_URLs } = useQuiz();
