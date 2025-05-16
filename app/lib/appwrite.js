@@ -2,7 +2,7 @@
 
 // import them from appwrite here 
 
-import { Client, Databases, Account } from 'appwrite'; 
+import { Client, Databases, Account, Storage } from 'appwrite'; 
 // IMPORT THE CREDS HERE USING VITE AND THE .ENV PAGAGE 
 const projectID = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID; 
 
@@ -19,6 +19,9 @@ const client = new Client();
 
 client.setEndpoint("https://api.dyslexiaquiz.com/v1")
 .setProject(projectID); 
+
+
+export const storage = new Storage(client);
 
 
 export const account = new Account(client); 

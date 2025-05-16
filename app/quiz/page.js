@@ -9,15 +9,15 @@ import Image from 'next/image';
 import { QuizAnswer } from '../Components/QuizAnswer';
 import QuizCard from '../Components/QuizCard';
 
-
+import { storage } from '../lib/appwrite';
 
 
 export default function Quiz() {
-
-    
     const router = useRouter();
     const { name, sound, userAge } = useUser();
-    const { questions, currentQuestion, handleAnswer, currentIndex, quizLength, gif_URLs } = useQuiz();
+    const { questions, currentQuestion, handleAnswer, currentIndex, quizLength, gif_URLs,
+        
+     } = useQuiz();
     
     const [answer, setAnswer] = useState();
 
@@ -42,12 +42,17 @@ export default function Quiz() {
                 } : null,
                 gifURLsCount: gif_URLs?.length
             }
+
+            
+
         });
     }, []);
 
+    
+
     // Log state changes
     useEffect(() => {
-        console.log('🔄 Quiz State Update:', {
+        console.log('🔄 Quiz State Update:', {   
             currentIndex,
             quizLength,
             questionsCount: questions?.length,
@@ -79,8 +84,15 @@ export default function Quiz() {
             GIF_URL,
             currentIMG,
             currentIndex,
-            totalQuestions: quizLength
+            totalQuestions: quizLength, 
+            
         });
+        console.log('this is the MIME TYPE: \n', currentIMG.type); 
+        
+        
+        // getMimeType();
+
+        
     }, [currentQuestion, currentIndex]);
 
     const handleClick = async (userAnswer) => {
@@ -93,10 +105,48 @@ export default function Quiz() {
         
         await setAnswer(userAnswer);
         handleAnswer(userAnswer);
+        console.log('handle click function'); 
     };
 
 
+    async function getMimeTypeFromUrl(url) {
+        try {
+          const response = await fetch(url, {
+            method: 'HEAD',
+            credentials: 'include',  // Sends cookies if session cookie is set
+            headers: {
+              'X-Appwrite-Project': 'test-domain',
+              'X-Appwrite-Key': 'standard_e712d8674097ba4a1a3a3780cab43100b1a03f599931359d797a5dfa3e46a62e068ccdaac68e29421d97bb5723cf249ffd5bfe295685c1c4943c9180410953e00b7b5432097c04054108a1eae267619f0ed8f908c81a800cce1b2b886b6b789bc2990c6cd4c41be2b7ae90bde48ca72546a8021d6eb69a34e3b9e552449203f2', // usually not for client side
+            }
+          });
+      
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+      
+          // The MIME type is in the Content-Type response header
+          const mimeType = response.headers.get('Content-Type');
+          console.log('MIME type:', mimeType);
+          return mimeType;
+        } catch (error) {
+          console.error('Failed to fetch MIME type:', error);
+          return null;
+        }
+      }
+      
 
+      useEffect(() => {
+        if (currentIMG) {
+            getMimeTypeFromUrl(currentIMG);
+            console.log('this is the updated IMG \n', currentIMG);
+        }
+      }, [currentIMG]);
+
+      useEffect(() => {
+        if (currentQuestion?.$id) {
+            console.log(`🆔 Current Question Document ID: ${currentQuestion.$id}`);
+        }
+    }, [currentQuestion]);
 
 
     return (    
@@ -107,10 +157,10 @@ export default function Quiz() {
                         questionText={questionText}
                         Section={Section}
                         audio_URL={audio_URL}
-                        currentIMG={GIF_URL}
+                        currentIMG={currentIMG}
                     />
 
-               
+
                 <QuizAnswer/> 
                 
             </main>
