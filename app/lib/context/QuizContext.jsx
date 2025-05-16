@@ -62,7 +62,7 @@
                 currentQuestion: currentQuestion ? {
                     id: currentQuestion.$id,
                     section: currentQuestion.Section,
-                    question: currentQuestion.Question
+                    question: currentQuestion.questionText
                 } : null,
                 questionsCount: questions.length,
                 gifURLsCount: gif_URLs?.length || 0
@@ -111,14 +111,33 @@
                     const documents = response.documents;
                     console.log(`📊 QuizContext: Retrieved ${documents.length} questions`);
 
+                    const normalizedData = documents.map(doc => ({
+
+
+                        id: doc.$id, 
+                        questionText: doc.Question, 
+                        gifUrl: doc.GIF_URL, 
+
+
+                    })); 
+
+                    // setQuestions(normalized);
+                    // setQuizLength(normalized.length);
+                    // setGIF_URLs(normalized.map(q => q.gifUrl));
+                    // setCurrentQuestion(normalized[0]);
+
+
+
+
                     if (!hasInitialized.current ) {
                         
 
                         hasInitialized.current = true;
                             setQuestions(documents);
-                            // setCurrentQuestion(questions[currentIndex]);
                             
                             const gifURLS = documents.map(doc => doc.GIF_URL);
+                            // const questionTexts = documents.map(doc => doc.questionText); 
+                            // console.log(`This is the array of question texts ${questionTexts}`); 
                             console.log(`🖼️ QuizContext: Extracted ${gifURLS.length} GIF URLs`);
                             setGIF_URLS(gifURLS);
                             setQuizLength(documents.length);
@@ -155,7 +174,8 @@
 
             setCurrentQuestion(questions[currentIndex]);
 
-        },[currentIndex])
+        },[currentIndex, questions]); 
+
 
         const calculateScore = async (answer) => {
             if (!currentQuestion || answer === 'noop') {
