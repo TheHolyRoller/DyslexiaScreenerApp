@@ -6,6 +6,7 @@
     import { useUser } from './UserContext';
     import { databases } from '../appwrite';
     import { useRef } from 'react';
+    import { Query } from 'appwrite';
 
 
     // Environment variable checks
@@ -92,40 +93,43 @@
                         throw new Error('Missing required Appwrite configuration');
                     }
 
+                                
+                    const allQuestions = [];
+                    const limit = 100; 
+                    let offset = 0;
+                    let totalDocuments = 0;
+                    let total; 
+
                     console.log('📥 QuizContext: Fetching questions from Appwrite');
                     console.log('🔗 Appwrite Connection Details:', {
                         databaseId: DATABASE_ID,
                         collectionId: QUESTION_COLLECTION_ID
                     });
 
-                    const response = await databases.listDocuments(DATABASE_ID, QUESTION_COLLECTION_ID);
-                    console.log('📦 Appwrite Response:', {
-                        total: response.total,
-                        documentsCount: response.documents?.length
-                    });
+                    do {
+                        const response = await databases.listDocuments(
+                          DATABASE_ID,
+                          QUESTION_COLLECTION_ID,
+                          [
+                            Query.limit(limit),
+                            Query.offset(offset)
+                          ]
+                        );
+                        
 
-                    if (!response.documents || response.documents.length === 0) {
-                        throw new Error('No questions found in the collection');
-                    }
+                        console.log(`📄 Fetched ${response.documents.length} questions (offset ${offset})`);
 
-                    const documents = response.documents;
-                    console.log(`📊 QuizContext: Retrieved ${documents.length} questions`);
+                      
+                        if (response.documents.length === 0) break;
+                      
+                        allQuestions.push(...response.documents);
+                      
+                        total = response.total; // Total documents in the collection
+                        offset += response.documents.length;
+                      
+                      } while (offset < total);
 
-                    const normalizedData = documents.map(doc => ({
-
-
-                        id: doc.$id, 
-                        questionText: doc.Question, 
-                        gifUrl: doc.GIF_URL, 
-
-
-                    })); 
-
-                    // setQuestions(normalized);
-                    // setQuizLength(normalized.length);
-                    // setGIF_URLs(normalized.map(q => q.gifUrl));
-                    // setCurrentQuestion(normalized[0]);
-
+                      console.log(`✅ Total questions fetched: ${allQuestions.length}`);
 
 
 
@@ -133,16 +137,13 @@
                         
 
                         hasInitialized.current = true;
-                            setQuestions(documents);
-                            
-                            const gifURLS = documents.map(doc => doc.GIF_URL);
-                            // const questionTexts = documents.map(doc => doc.questionText); 
-                            // console.log(`This is the array of question texts ${questionTexts}`); 
-                            console.log(`🖼️ QuizContext: Extracted ${gifURLS.length} GIF URLs`);
-                            setGIF_URLS(gifURLS);
-                            setQuizLength(documents.length);
-                            setCurrentQuestion(documents[0]);
-                            console.log('✅ Initial question set');
+                        setQuestions(allQuestions);
+
+                        const gifURLS = allQuestions.map(doc => doc.GIF_URL);
+                        setGIF_URLS(gifURLS);
+                        setQuizLength(allQuestions.length);
+                        setCurrentQuestion(allQuestions[0]);
+                        console.log('✅ Loaded all questions:', allQuestions.length);
 
                     }
 

@@ -12,6 +12,7 @@ import QuizCard from '../Components/QuizCard';
 import { storage } from '../lib/appwrite';
 
 
+
 export default function Quiz() {
     const router = useRouter();
     const { name, sound, userAge } = useUser();
@@ -159,6 +160,7 @@ export default function Quiz() {
                         audio_URL={audio_URL}
                         currentIMG={currentIMG}
                     />
+
 
                 <QuizAnswer/> 
                 

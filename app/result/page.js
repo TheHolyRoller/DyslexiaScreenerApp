@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import { useUser } from '../lib/context/UserContext';
 import { useQuiz } from '../lib/context/QuizContext';
 import { useSearchParams } from 'next/navigation';
+import r from '../Styles/Results.module.css'; 
 
 function ResultContent() {
     const searchParams = useSearchParams();
@@ -35,62 +36,161 @@ function ResultContent() {
     console.log('📋 Organisational Score:', organisationalScore);
     console.log('✨ ======================');
 
+
+
     return (
         <>
 
-        <section style={{color: 'black', minHeight: '100vh'}} >
+        <section className={r.quizResultsSection}>
+        <div className={r.quizResultsSubContainer}>
 
-        <div style={{ 
-            color: 'white',
-            padding: '2rem',
-            maxWidth: '800px',
-            margin: '0 auto'
-        }}>
-            <h1>Quiz Results</h1>
-            
-            <div style={{ 
-                marginTop: '2rem',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1rem'
-            }}>
-                <h2>Overall Score: {score}</h2>
-                <h2>Final Score: {finalScore}</h2>
+        {/* Add in the main title section here  */}
+        <div className={r.mainTitleContainer}>
+
+            <h1 className={r.mainQuizTitle}>
+                Results
+
+            </h1>
+
+
+        </div>
+
+        {/*  Add in the main master score section here  */}
+        <section className={r.mainScoreSectionContainer}>
+
+        <div className={r.mainScoreSubContainer}>
+        
+        {/* Add in the main score Element here  */}
+        <h2 className={r.mainScoreElement} >
+
+        Score
+
+        </h2>
+        
+        </div>
+
+
+
+        </section>
+
+        {/* Add in the score supporting text here  */}
+        <div className={r.scoreSupportingTextContainer}>
+
+        <div className={r.mainQuizSupportingText} >
+
+        <h3 className={r.scoreIntroText}>
+
+        Score Breakdown 
+
+        </h3>
+
+
+        </div>
+
+
+        </div>
+
+        {/* Add in the main score board container here  */}
+        <section className={r.mainScoreBoardContainer}>
+        <div className={r.scoreBoardSubContainer}>
+
+                <ul className={r.scoreBoardList}>
+
+                    <li className={r.scoreBoardListItem}>
+
+                        <div className={r.scoreTitleContainer}>
+                        <div className={r.scoreTitle}>
+                            Reading Score 
+                        
+                           </div>
+                        <div className={r.scoreSupportText}>
+
+                            Slightly Impacted 
+
+
+                        </div>
+
+                        </div>
+
+
+                        <div className={r.scoreNumberContainer}>
+
+                        <div className={r.scoreNumber}>
+                            <div className={r.scoreNumSubContainer}>
+                            Num 
+
+                            </div>
+                        </div>
+
+                        </div>
+
+
+
+                    </li>
+
+
+
+
+                </ul>
+        
+        
+        
+        
+         </div>
+        </section>
+
+
+        {/* Add in the CTA Section here  */}
+        <section className={r.learnMoreCTAContainer}>
+
+        <div className={r.learnMoreCTASubContainer}>
+
+            {/* Add in the main text section container here  */}
+        <div className={r.CTATextContainer}>
+
+            <div className={r.CTATextSubContainer}>
+
+                <h4 className={r.CTAText}>
                 
-                <div style={{ 
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                    gap: '1rem',
-                    marginTop: '2rem'
-                }}>
-                    <div className="score-card">
-                        <h3>Memory Score</h3>
-                        <p>{memoryScore}</p>
-                    </div>
-                    
-                    <div className="score-card">
-                        <h3>Writing Score</h3>
-                        <p>{writingScore}</p>
-                    </div>
-                    
-                    <div className="score-card">
-                        <h3>Reading Score</h3>
-                        <p>{readingScore}</p>
-                    </div>
-                    
-                    <div className="score-card">
-                        <h3>Exam Results Score</h3>
-                        <p>{examResultsScore}</p>
-                    </div>
-                    
-                    <div className="score-card">
-                        <h3>Organisational Score</h3>
-                        <p>{organisationalScore}</p>
-                    </div>
-                </div>
+                Take Quiz 
+
+                </h4>
+
+
             </div>
+
+
+        </div>
+
+
+        {/* Add in the button container here  */}
+        <article className={r.CTAButtonContainer}>
+            <div className={r.CTAButtonSubContainer}>
+
+                <button className={r.CTAButton}>
+
+                Learn More 
+
+                </button>
+
+            </div>
+
+
+        </article>
+
+
+
+
         </div>
         </section>
+
+
+        </div>
+        </section>
+
+
+
+     
         </>
     );
 }

@@ -1,0 +1,134 @@
+
+.quizResultsSection {
+
+    height: 95vh; 
+    width: 80vw; 
+    margin: 10vh auto;
+    padding: 1vh; 
+    position: relative;
+    outline: 5px solid lime;
+
+
+}
+
+.quizResultsSubContainer {
+
+
+    display: grid; 
+    place-content: center;
+    height: 100%;
+    outline: 5px solid red;
+
+}
+
+.mainTitleContainer {
+
+
+    outline: 3px solid red;
+    /* height: 40vh; */
+
+
+}
+
+.mainQuizTitle {
+}
+
+.mainScoreSectionContainer {
+
+    outline: 3px solid blue;
+
+}
+
+.mainScoreSubContainer {
+}
+
+.mainScoreElement {
+
+
+    height: 40vh;
+
+}
+
+.scoreSupportingTextContainer {
+
+
+    outline: 3px solid red;
+
+}
+
+.mainQuizSupportingText {
+
+
+  
+}
+
+.scoreIntroText {
+
+    color: black;
+
+
+
+}
+
+.mainScoreBoardContainer {
+}
+
+.scoreBoardSubContainer {
+}
+
+.scoreBoardList {
+}
+
+.scoreBoardListItem {
+
+    outline: 7px solid blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    width: 55vw; 
+
+
+
+}
+
+.scoreTitleContainer {
+}
+
+.scoreTitle {
+}
+
+.scoreSupportText {
+}
+
+.scoreNumberContainer {
+}
+
+.scoreNumber {
+}
+
+.scoreNumSubContainer {
+}
+
+.learnMoreCTAContainer {
+}
+
+.learnMoreCTASubContainer {
+}
+
+.CTATextContainer {
+}
+
+.CTATextSubContainer {
+}
+
+.CTAText {
+}
+
+.CTAButtonContainer {
+}
+
+.CTAButtonSubContainer {
+}
+
+.CTAButton {
+}

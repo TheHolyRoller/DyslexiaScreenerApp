@@ -37,6 +37,7 @@ const QuizCard = ({
                     >
                         <source src={audio_URL} type="audio/mp3" />
                     </audio>
+                    
                 )}
 
                 <div className={q.categoryLabelContainer}>

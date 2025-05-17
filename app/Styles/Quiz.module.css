@@ -58,7 +58,7 @@ place-content: center;
 
 .card{
     height: 35rem;
-    width: 25rem;
+    width: 21rem;
     position: relative;
     background-color: #fbfbfb;
     margin: 4.85rem auto; 
@@ -68,24 +68,25 @@ place-content: center;
     -moz-border-radius: 1rem;
     -ms-border-radius: 1rem;
     -o-border-radius: 1rem;
+
+    /* outline: 4px solid red; */
 }
 
 
 #cardOne{
-
-
-    position: absolute; 
-    left: 0; 
-    right: 0; 
+    position: absolute;
+    left: 0;
+    right: 0;
     top: 0;
-    height: 90%; 
+    /*height: 90%;
+    */height: 38.1rem;
     z-index: 999999;
-
-    transform:  translate(0rem, -2em) !important; 
+    transform:  translate(0rem, -2em) !important;
     box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.3);
-
-
-
+    -webkit-transform:  translate(0rem, -2em) !important;
+    -moz-transform:  translate(0rem, -2em) !important;
+    -ms-transform:  translate(0rem, -2em) !important;
+    -o-transform:  translate(0rem, -2em) !important;
 }
 
 
@@ -99,9 +100,8 @@ place-content: center;
     right: 0; 
     bottom: 0; 
     z-index: 0;
-    /* margin-top: -0.5em;  */
-    height: 29.4rem; 
-    margin-bottom: -5em;
+    height: 36.1rem;
+    /* outline: 2px solid red; */
     box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.3);
 
 }
@@ -116,9 +116,9 @@ place-content: center;
  right: 0; 
  bottom: 0; 
  z-index: 0;
- /* margin-top: -0.5em;  */
- height: 29.7rem; 
- margin-bottom: -5em;
+ height: 36.5rem;
+ /* outline: 2px solid red; */
+ z-index: 0;
  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.3);
 
 }
@@ -132,8 +132,9 @@ place-content: center;
     right: 0; 
     bottom: 0; 
     z-index: 0;
-    height: 29rem; 
-    margin-bottom: -5em;
+    height: 35.6rem; 
+    /* margin-bottom: -5em; */
+    /* outline: 2px solid red; */
     box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.3);
 
 
@@ -163,7 +164,8 @@ position: relative;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     background-color: #2e9fe7;
-    display: grid; 
+    display: grid;  
+
     place-content: center;
 
 
