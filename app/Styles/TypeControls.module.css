@@ -4,14 +4,14 @@
 .mainAnswerContainer{
 
 
-    margin: 2em auto; 
+    margin: 0 auto; 
     display: grid; 
     place-content: center;  
     font-family: cursive;
     text-transform: uppercase;
     background: none;
-    
-
+    margin-bottom: 8em;
+    margin-top: -2em; 
 
 }
 
@@ -29,7 +29,7 @@
 
 
     display: flex; 
-    gap: 3vw; 
+    gap: 0.7vw; 
 
 
 
@@ -419,7 +419,6 @@
 
     background-color: rgb(146, 196, 47);
     cursor: pointer;
-
 
 }
 

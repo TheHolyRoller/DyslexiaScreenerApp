@@ -20,6 +20,7 @@ export default function UserDetails() {
         e.preventDefault();
         setName(e.target.value);
     };
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();

@@ -20,11 +20,7 @@ const QuizCard = ({
     return (
 
         <>
-
-
         <article className={q.card}>
-          
-
             <div className={q.cardCategoryColorContainer} style={{outline: '0px solid red'}}>
                 {audio_URL && (
                     <audio 
@@ -80,7 +76,6 @@ const QuizCard = ({
                     
             <article className={q.card} id={q.cardThree}></article>
             <article className={q.card} id={q.cardTwo}></article>
-
             <article className={q.card} id={q.cardFour}></article>
         </article>
         </>
