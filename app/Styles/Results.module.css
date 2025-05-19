@@ -6,7 +6,8 @@
     margin: 10vh auto;
     padding: 1vh; 
     position: relative;
-    outline: 5px solid lime;
+    /* outline: 5px solid lime; */
+
 
 
 }
@@ -17,60 +18,108 @@
     display: grid; 
     place-content: center;
     height: 100%;
-    outline: 5px solid red;
+    /* outline: 5px solid red; */
 
 }
 
 .mainTitleContainer {
 
 
-    outline: 3px solid red;
-    /* height: 40vh; */
-
+    /* outline: 3px solid red; */
+    display: grid;
+    place-content: center;
 
 }
 
 .mainQuizTitle {
+    display: none;
 }
 
 .mainScoreSectionContainer {
 
-    outline: 3px solid blue;
+    /* outline: 3px solid blue; */
+    position: relative; 
+    display: grid;
+    place-content: center;
+
 
 }
 
 .mainScoreSubContainer {
+
+    height: 45vh;
+
 }
 
 .mainScoreElement {
-
-
-    height: 40vh;
+    width: 9rem;
+    height: 9rem;
+    background-color: #58ba57;
+    border-radius: 50% ;
+    -webkit-border-radius: 50% ;
+    -moz-border-radius: 50% ;
+    -ms-border-radius: 50% ;
+    -o-border-radius: 50% ;
+    display: grid;  
+    place-content: center; 
+    margin: 2em auto; 
+    font-size: 3rem;
 
 }
 
+.circle{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    position: absolute;
+    top: 0;
+    outline: 10px solid grey;
+    position: inherit;
+    color: white;
+    transform: translate(-0em, -16.0em);
+    -webkit-transform: translate(-0em, -16.0em);
+    -moz-transform: translate(-0em, -16.0em);
+    -ms-transform: translate(-0em, -16.0em);
+    -o-transform: translate(-0em, -16.0em);
+}
+
 .scoreSupportingTextContainer {
-
-
-    outline: 3px solid red;
+    position: relative;
+    display: grid;  
+    place-content: center;
 
 }
 
 .mainQuizSupportingText {
 
-
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   
 }
 
 .scoreIntroText {
 
-    color: black;
-
-
+    color: #868686; 
+    text-transform: uppercase;
+    font-weight: bold;
 
 }
 
 .mainScoreBoardContainer {
+    background-color: #f1f1f1;
+    padding: 4em; 
+
+    height: 45vh;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    color: #000;
+
 }
 
 .scoreBoardSubContainer {
@@ -81,13 +130,13 @@
 
 .scoreBoardListItem {
 
-    outline: 7px solid blue;
     display: flex;
     justify-content: space-between;
     align-items: center; 
     width: 55vw; 
-    
+    margin-top: 1em; 
 
+    
 }
 
 .scoreTitleContainer {
@@ -97,6 +146,7 @@
 }
 
 .scoreSupportText {
+    display: none;
 }
 
 .scoreNumberContainer {
@@ -109,6 +159,11 @@
 }
 
 .learnMoreCTAContainer {
+
+    display: flex;
+    justify-content: flex-end;
+
+
 }
 
 .learnMoreCTASubContainer {
@@ -124,6 +179,19 @@
 }
 
 .CTAButtonContainer {
+    background-color: #58ba57;
+    width: 7.5rem;
+    display: grid;
+    place-content: center;
+    height: 3rem;
+    border-radius:10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -ms-border-radius:10px;
+    -o-border-radius:10px;
+    /* margin-right: 1em;  */
+    margin-top: 2em; 
+
 }
 
 .CTAButtonSubContainer {
