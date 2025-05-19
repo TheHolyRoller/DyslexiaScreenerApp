@@ -7,6 +7,7 @@
     import { databases } from '../appwrite';
     import { useRef } from 'react';
     import { Query } from 'appwrite';
+import { off } from 'process';
 
 
     // Environment variable checks
@@ -100,6 +101,10 @@
                     let totalDocuments = 0;
                     let total; 
 
+                    console.log('this is the limit \n', limit); 
+                    console.log('this is the offset \n', offset); 
+
+
                     console.log('📥 QuizContext: Fetching questions from Appwrite');
                     console.log('🔗 Appwrite Connection Details:', {
                         databaseId: DATABASE_ID,
@@ -111,7 +116,7 @@
                           DATABASE_ID,
                           QUESTION_COLLECTION_ID,
                           [
-                            Query.limit(limit),
+                            Query.limit(1000),
                             Query.offset(offset)
                           ]
                         );
@@ -123,8 +128,9 @@
                         if (response.documents.length === 0) break;
                       
                         allQuestions.push(...response.documents);
+                        console.log('this is the length of all QUESTIONS \n', allQuestions.length); 
                       
-                        total = response.total; // Total documents in the collection
+                        total = response.total;
                         offset += response.documents.length;
                       
                       } while (offset < total);
@@ -195,6 +201,7 @@
                 Section 
             } = currentQuestion;
 
+            
             console.log(`📊 QuizContext: Current section: ${Section}`);
 
             const updateScoreCategory = (type, score) => {

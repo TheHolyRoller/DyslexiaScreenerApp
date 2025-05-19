@@ -3,6 +3,7 @@ import { EmailTemplate } from '../../Components/email-template';
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
+
 // Check for API key
 const apiKey = process.env.NEXT_RESEND_API_KEY;
 if (!apiKey) {

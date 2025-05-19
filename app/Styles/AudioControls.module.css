@@ -4,13 +4,15 @@
 .mainAnswerContainer{
 
 
-    margin: 2em auto; 
+    margin: 0 auto; 
     display: grid; 
     place-content: center;  
     font-family: cursive;
     text-transform: uppercase;
     background: none;
-    
+    margin-top: -3em; 
+    margin-bottom: 9em; 
+
 
 
 }
@@ -29,7 +31,7 @@
 
 
     display: flex; 
-    gap: 3vw; 
+    gap: 1vw; 
 
 
 
@@ -64,8 +66,6 @@
     cursor: pointer;
 
 }
-
-
 
 
 .buttonStack{

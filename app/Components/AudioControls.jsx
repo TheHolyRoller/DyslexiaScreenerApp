@@ -20,9 +20,6 @@ function AudioControls() {
   
   
   
-  
-  
-  
     return (
 
     <section className={au.mainAnswerContainer}>
