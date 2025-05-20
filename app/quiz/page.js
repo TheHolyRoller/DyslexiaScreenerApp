@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { QuizAnswer } from '../Components/QuizAnswer';
 import QuizCard from '../Components/QuizCard';
 
-import { storage } from '../lib/appwrite';
+// import { storage } from '../lib/appwrite';
 
 
 

@@ -16,6 +16,7 @@ const projectID = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || 'new-quiz';
 const databaseID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'quiz-database';
 const questionCollectionID = process.env.NEXT_PUBLIC_APPWRITE_QUESTION_COLLECTION_ID || 'questions_collection';
 
+
 console.log('Using Appwrite configuration:', {
   projectID,
   databaseID,
@@ -34,8 +35,8 @@ client.setEndpoint("https://api.dyslexiaquiz.com/v1")
 .setProject(projectID); 
 
 
-export const storage = new Storage(client);
-
+// Work out how to fix this error 
+// export const storage = new Storage(client);
 
 export const account = new Account(client); 
 console.log('this is the client object \n', client); 

@@ -1,5 +1,4 @@
         'use client';
-
         import { Suspense } from 'react';
         import { useUser } from '../lib/context/UserContext';
         import { useQuiz } from '../lib/context/QuizContext';
