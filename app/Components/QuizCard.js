@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 import q from '../Styles/Quiz.module.css';
 
@@ -60,36 +61,22 @@ const QuizCard = ({
             
             <div className={q.imageSectionContainer}>
                 <div className={q.doodleContainer} style={{outline: '0px solid lime', margin: '0 auto'}}>
-                    {currentIMG && (
-                        currentIMG.endsWith('.gif') ? (
-                            <img 
-                                src={currentIMG}
-                                alt='quiz illustration'
-                                width={300}
-                                height={300}
-                                onLoad={() => console.log('🖼️ GIF Loaded:', currentIMG)}
-                                onError={(e) => console.error('❌ GIF Error:', e)}
-                                style={{
-                                    marginTop: '-2rem',
-                                    objectFit: 'contain'
-                                }}
-                            />
-                        ) : (
-                            <Image 
-                                src={currentIMG}
-                                alt='quiz illustration'
-                                width={300}
-                                height={300}
-                                unoptimized
-                                onLoad={() => console.log('🖼️ Image Loaded:', currentIMG)}
-                                onError={(e) => console.error('❌ Image Error:', e)}
-                                style={{
-                                    marginTop: '-2rem',
-                                    objectFit: 'contain'
-                                }}
-                            />
-                        )
-                    )}
+                {currentIMG && (
+                        <img
+                            src={currentIMG}
+                            alt='quiz illustration'
+                            width={300}
+                            height={300}
+                            style={{
+                            marginTop: '-2rem',
+                            objectFit: 'contain',
+                            display: 'block'
+                            }}
+                            onLoad={() => console.log('🖼️ GIF Loaded:', currentIMG)}
+                            onError={(e) => console.error('❌ GIF Load Error:', e)}
+                        />
+                        )}
+                                            
                 </div>
             </div>
                     

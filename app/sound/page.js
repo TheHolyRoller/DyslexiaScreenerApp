@@ -18,6 +18,8 @@ export default function SoundPage() {
         router.push('/type');
     };
 
+    console.log('this is the sound gif url https://fra.cloud.appwrite.io/v1/storage/buckets/dood_gifs/files/68251a980026fec5e869/view?project=test-domain&mode=admin')
+
     return (
         <section style={{color: 'white'}}>
             <main className={q.quizComponentContainer} id='quizElement'>

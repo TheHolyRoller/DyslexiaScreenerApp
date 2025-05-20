@@ -126,7 +126,6 @@ export default function Quiz() {
         console.log('this is the MIME TYPE: \n', currentIMG.type); 
         
         
-        // getMimeType();
 
         
     }, [currentQuestion, currentIndex]);
