@@ -194,7 +194,6 @@ export default function Quiz() {
                         Section={Section}
                         audio_URL={audio_URL}
                         currentIMG={currentIMG}
-                        currentIMG={currentIMG}
                     />
                 <QuizAnswer/> 
 
