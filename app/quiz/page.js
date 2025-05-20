@@ -196,8 +196,6 @@ export default function Quiz() {
                         currentIMG={currentIMG}
                     />
                 <QuizAnswer/> 
-
-                
             </main>
         </section>
     );
