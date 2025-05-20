@@ -209,9 +209,9 @@ import { off } from 'process';
                 const scoreSetters = {
                     reading: setReadingScore,
                     writing: setWritingScore,
-                    organisation: setOrganisationalScore,
                     memory: setMemoryScore,
-                    exams: setExamResultsScore
+                    plans: setOrganisationalScore,
+                    tests: setExamResultsScore
                 };
 
                 const key = type.trim().toLowerCase();
@@ -227,21 +227,29 @@ import { off } from 'process';
                 if (answer === 'yes') {
                     setScore(prevScore => prevScore + adult_yes_weight);
                     updateScoreCategory(Section, adult_yes_weight);
+                    console.log('this is the question Section \n', Section); 
                 } else if (answer === 'sometimes') {
                     setScore(prevScore => prevScore + adult_maybe_weight);
                     updateScoreCategory(Section, adult_maybe_weight);
+                    console.log('this is the question Section \n', Section); 
+
                 }
             } else {
                 console.log('👶 QuizContext: Calculating score for child');
                 if (answer === 'yes') {
                     setScore(prevScore => prevScore + child_yes_weight);
                     updateScoreCategory(Section, child_yes_weight);
+                    console.log('this is the question Section \n', Section); 
+
                 } else if (answer === 'sometimes') {
                     setScore(prevScore => prevScore + child_maybe_weight);
                     updateScoreCategory(Section, child_maybe_weight);
+                    console.log('this is the question Section \n', Section); 
+
                 }
             }
         };
+
 
         const handleAnswer = async (answer) => {
 
@@ -260,6 +268,7 @@ import { off } from 'process';
                 router.push('/email-permissions');
             }
         };
+
 
         return (
             <QuizContext.Provider value={{

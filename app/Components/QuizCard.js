@@ -35,6 +35,7 @@ const QuizCard = ({
                     </audio>
                     
                 )}
+                
 
                 <div className={q.categoryLabelContainer}>
                     <label className={q.categoryLabel}>
@@ -43,8 +44,9 @@ const QuizCard = ({
                 </div>
             </div>
 
+
             {questionText && (
-                <div className={q.questionTextContainer} style={{outline: '0px solid red', color: 'black', position: 'relative', zIndex: '9999', marginTop: '1em', marginBottom: '5rem'}} >
+                <div className={q.questionTextContainer} style={{outline: '0px solid red', color: 'black', position: 'relative', zIndex: '9999', marginTop: '0em', marginBottom: '5rem'}} >
                     <h2 className={q.questionText}>
                         {questionText}
                         <span>

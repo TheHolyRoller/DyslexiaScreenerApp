@@ -19,7 +19,6 @@ export default function UserType() {
         await setUserType(type);
         setUser(type);
 
-        // Add a small delay before navigation
         setTimeout(() => {
             router.push('/details');
         }, 210);

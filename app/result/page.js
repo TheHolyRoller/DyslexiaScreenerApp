@@ -26,8 +26,6 @@
             } = useQuiz();
 
             
-
-            
             // Detailed console logging with emojis
             console.log('🎯 === Quiz Results Details ===');
             console.log('👤 User Name:', name);
@@ -43,8 +41,7 @@
             console.log('📋 Organisational Score:', organisationalScore);
             console.log('✨ ======================');
 
-
-
+            
             return (
                 <>
 
@@ -78,13 +75,9 @@
 
                 {/* Add in the circle background here  */}
                 <div className={r.circle}>
-                    s
+                    `
                 </div>
-                
                 </div>
-
-
-
                 </section>
 
                 <div className={r.scoreSupportingTextContainer}>
@@ -106,7 +99,6 @@
         <div className={r.scoreTitle}>
             Reading Score 
         </div>
-
 
         <div className={r.scoreSupportText}>
 
