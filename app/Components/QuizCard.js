@@ -13,7 +13,9 @@ const QuizCard = ({
     console.log("Question Text:", questionText);
     console.log("Audio URL:", audio_URL);
     console.log("Section:", Section);
-    console.log("Current Image:", currentIMG);
+    console.log("Current Image URL:", currentIMG);
+    console.log("Current Image Type:", typeof currentIMG);
+    console.log("Image Valid:", Boolean(currentIMG));
     console.log("Current Question:", currentQuestion);
 
 
@@ -59,19 +61,34 @@ const QuizCard = ({
             <div className={q.imageSectionContainer}>
                 <div className={q.doodleContainer} style={{outline: '0px solid lime', margin: '0 auto'}}>
                     {currentIMG && (
-                        <Image 
-                            src={currentIMG}
-                            alt='quiz illustration'
-                            width={300}
-                            height={300}
-                            unoptimized
-                            onLoad={() => console.log('🖼️ Image Loaded:', currentIMG)}
-                            onError={(e) => console.error('❌ Image Error:', e)}
-                            style={{
-                                marginTop: '-2rem',
-                                objectFit: 'contain'
-                            }}
-                        />
+                        currentIMG.endsWith('.gif') ? (
+                            <img 
+                                src={currentIMG}
+                                alt='quiz illustration'
+                                width={300}
+                                height={300}
+                                onLoad={() => console.log('🖼️ GIF Loaded:', currentIMG)}
+                                onError={(e) => console.error('❌ GIF Error:', e)}
+                                style={{
+                                    marginTop: '-2rem',
+                                    objectFit: 'contain'
+                                }}
+                            />
+                        ) : (
+                            <Image 
+                                src={currentIMG}
+                                alt='quiz illustration'
+                                width={300}
+                                height={300}
+                                unoptimized
+                                onLoad={() => console.log('🖼️ Image Loaded:', currentIMG)}
+                                onError={(e) => console.error('❌ Image Error:', e)}
+                                style={{
+                                    marginTop: '-2rem',
+                                    objectFit: 'contain'
+                                }}
+                            />
+                        )
                     )}
                 </div>
             </div>

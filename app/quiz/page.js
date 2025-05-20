@@ -13,6 +13,14 @@ import { storage } from '../lib/appwrite';
 
 
 
+// Mock data for testing when Appwrite data isn't available
+const mockQuestion = {
+  questionText: 'Do you find it difficult to read out loud?',
+  Section: 'Reading',
+  audio_URL: '',
+  GIF_URL: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtM2JrY2ZlOHQyeGxxNmVxbXd1aWZxcnBnNHd3MWx0ZnIyaWx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKTDn976rzVgky4/giphy.gif'
+};
+
 export default function Quiz() {
     const router = useRouter();
     const { name, sound, userAge } = useUser();
@@ -21,7 +29,6 @@ export default function Quiz() {
      } = useQuiz();
     
     const [answer, setAnswer] = useState();
-
 
     // Log initial props and state
     useEffect(() => {
@@ -67,13 +74,41 @@ export default function Quiz() {
         });
     }, [currentIndex, quizLength, questions, currentQuestion, gif_URLs]);
 
+    // Debug data availability
+    useEffect(() => {
+        console.log('DEBUG - Quiz Data:', {
+            hasQuestions: Boolean(questions?.length),
+            hasCurrentQuestion: Boolean(currentQuestion),
+            hasGifURLs: Boolean(gif_URLs?.length),
+            currentIndex,
+            quizLength
+        });
+        
+        if (currentQuestion) {
+            console.log('DEBUG - Current Question Data:', {
+                id: currentQuestion.$id,
+                text: currentQuestion.questionText,
+                section: currentQuestion.Section,
+                gifUrl: currentQuestion.GIF_URL
+            });
+        } else {
+            console.log('DEBUG - No current question available');
+        }
+        
+        if (gif_URLs?.length) {
+            console.log('DEBUG - GIF URLs:', gif_URLs.slice(0, 3), '...');
+        } else {
+            console.log('DEBUG - No GIF URLs available');
+        }
+    }, [questions, currentQuestion, gif_URLs, currentIndex]);
+
     // Initialize currentQuestion properties safely
-    const questionText = currentQuestion?.questionText || '';
-    const audio_URL = sound ? (currentQuestion?.audio_URL || '') : '';
-    const Section = currentQuestion?.Section || '';
+    const questionText = currentQuestion?.questionText || mockQuestion.questionText;
+    const audio_URL = sound ? (currentQuestion?.audio_URL || mockQuestion.audio_URL) : '';
+    const Section = currentQuestion?.Section || mockQuestion.Section;
     const Type = currentQuestion?.Type || '';
-    const GIF_URL = currentQuestion?.GIF_URL || '';
-    const currentIMG = gif_URLs?.[currentIndex] || '';
+    const GIF_URL = currentQuestion?.GIF_URL || mockQuestion.GIF_URL;
+    const currentIMG = gif_URLs?.[currentIndex] || mockQuestion.GIF_URL;
 
     // Log question details
     useEffect(() => {
@@ -159,8 +194,10 @@ export default function Quiz() {
                         Section={Section}
                         audio_URL={audio_URL}
                         currentIMG={currentIMG}
+                        currentIMG={currentIMG}
                     />
                 <QuizAnswer/> 
+
                 
             </main>
         </section>
