@@ -214,6 +214,8 @@ import { off } from 'process';
                     tests: setExamResultsScore
                 };
 
+
+                
                 const key = type.trim().toLowerCase();
                 const scoreSetter = scoreSetters[key];
 
