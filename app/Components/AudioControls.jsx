@@ -9,7 +9,6 @@ import { useRouter } from 'next/navigation';
 
 function AudioControls() {
   
-  
     const router = useRouter();
     const { setUserSound } = useUser();
 

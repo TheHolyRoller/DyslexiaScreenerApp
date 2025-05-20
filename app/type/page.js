@@ -13,7 +13,7 @@ import TypeControls from '../Components/TypeControls';
 export default function UserType() {
     const router = useRouter();
     const [user, setUser] = useState();
-    const { setUserType } = useUser();
+    const { setUserType, sound } = useUser();
 
     const handleUserType = async (type) => {
         await setUserType(type);
@@ -38,32 +38,9 @@ export default function UserType() {
                         currentQuestion={{
                             questionText: ""
                         }}
-                        audio_URL=''
-                        currentIMG=''
+                        audio_URL={sound ? "https://dyslexiaquizapp.s3.eu-west-2.amazonaws.com/audio+doodles/quizzer+who-v1.mp3" : null}
+                        currentIMG='https://fra.cloud.appwrite.io/v1/storage/buckets/dood_gifs/files/Dude_User_Type/view?project=test-domain&mode=admin'
                     />
-
-                {/* <section className={q.answerSectionContainer}>
-                    <aside className={q.buttonsContainer}>
-                        <div className={q.noButtonContainer}>
-                            <button 
-                                className={q.yesButton}
-                                onClick={() => handleUserType('adult')}
-                            >
-                                Adult
-                            </button>
-                        </div>
-
-                        <div className={q.yesButtonContainer}>
-                            <button 
-                                className={q.sometimesButton}
-                                onClick={() => handleUserType('child')}
-                            >
-                                Child
-                            </button>
-                        </div>
-                    </aside>
-                </section> */}
-
 
                 <TypeControls/>
 

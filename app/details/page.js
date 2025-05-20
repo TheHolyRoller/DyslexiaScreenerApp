@@ -13,7 +13,7 @@ export default function UserDetails() {
 
     const router = useRouter();
     const { handleAnswer } = useQuiz();
-    const { setUserName } = useUser();
+    const { setUserName, sound } = useUser();
     const [userName, setName] = useState('');
 
     const handleChange = (e) => {
@@ -42,13 +42,12 @@ export default function UserDetails() {
                         currentQuestion={{
                             questionText: ""
                         }}
-                        audio_URL={audio_URL}
-                        currentIMG={currentIMG}
+                        audio_URL={sound ? "https://dyslexiaquizapp.s3.eu-west-2.amazonaws.com/audio+doodles/quizzer+name-v1.mp3" : null}
+                        // audio_URL='https://dyslexiaquizapp.s3.eu-west-2.amazonaws.com/audio+doodles/quizzer+name-v1.mp3'
+                        currentIMG='https://fra.cloud.appwrite.io/v1/storage/buckets/dood_gifs/files/Dude_User_Name/view?project=test-domain&mode=admin'
                     />
 
                     <UserInput/>
-
-
                 </section>
             </main>
         </section>

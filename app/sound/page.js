@@ -11,7 +11,7 @@ import AudioControls from '../Components/AudioControls';
 
 export default function SoundPage() {
     const router = useRouter();
-    const { setUserSound } = useUser();
+    const { setUserSound, sound } = useUser();
 
     const handleSoundChoice = (soundEnabled) => {
         setUserSound(soundEnabled);
@@ -27,8 +27,8 @@ export default function SoundPage() {
                         currentQuestion={{
                             questionText: ""
                         }}
-                        audio_URL='https://dyslexiaquizapp.s3.eu-west-2.amazonaws.com/audio+doodles/intro+dood-v1.mp3'
-                        currentIMG='https://fra.cloud.appwrite.io/v1/storage/buckets/dood_gifs/files/audio/view?project=test-domain&mode=admin'
+                        audio_URL="https://dyslexiaquizapp.s3.eu-west-2.amazonaws.com/audio+doodles/intro+dood-v1.mp3"
+                        currentIMG='https://fra.cloud.appwrite.io/v1/storage/buckets/dood_gifs/files/68251a980026fec5e869/view?project=test-domain&mode=admin'
                     />
 
                 <div style={{outline: '0px solid red'}} >

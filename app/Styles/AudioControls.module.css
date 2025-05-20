@@ -14,7 +14,6 @@
     margin-bottom: 9em; 
 
 
-
 }
 
 
@@ -41,7 +40,7 @@
 
 
 .button{
-    all: unset;
+    /* all: unset; */
     border-radius: 10px;
     display: grid;
     place-content: center;
@@ -64,24 +63,35 @@
 
     margin-bottom: 5em;
     cursor: pointer;
+    /* outline: 20px solid lime; */
+    /* height: 6rem;  */
+
 
 }
 
 
 .buttonStack{
-    /*background-color: ;
-    */position: absolute;
+
+    position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     height: 100%;
-    z-index: -1;
+    /* outline: 5px solid red; */
+    
+    /* z-index: ; */
+    z-index: 9999;
     border-radius: 12px;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
     -ms-border-radius: 12px;
     -o-border-radius: 12px;
+
+    /* outline: 455px solid lime; */
+
+
+
 }
 
 
@@ -93,11 +103,10 @@
 
 
 
-
 }
 
 #noButton::before {
-    content: "";
+    /* content: "";
     position: absolute;
     top: 65px;
     left:15px;
@@ -110,7 +119,7 @@
     -webkit-transform: skew(-19deg, -4deg);
     -moz-transform: skew(-19deg, -4deg);
     -ms-transform: skew(-19deg, -4deg);
-    -o-transform: skew(-19deg, -4deg);
+    -o-transform: skew(-19deg, -4deg); */
 }   
 
 
@@ -183,17 +192,18 @@
 
 
 #noStackOne{
-    transform: rotate(3deg);
-    -webkit-transform: rotate(3deg);
-    -moz-transform: rotate(3deg);
-    -ms-transform: rotate(3deg);
-    -o-transform: rotate(3deg);
+    transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
     width: 105%;
     height: 105%;
+    background-color: rgb(241, 52, 39);
+    opacity: 1;
+    /* height: 5em;  */
 
-    background-color: rgb(241, 52, 39); 
-    /* opacity: 0.7; */
-    opacity: 1; 
+    /* outline: 66px solid lime; */
 }
 
 
@@ -454,7 +464,7 @@
     margin-right: -2px; 
     width: 105%; 
     height: 105%; 
-
+    
 }
 
 #yesStackTwo{

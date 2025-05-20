@@ -6,10 +6,10 @@ import { useUser } from '../lib/context/UserContext';
 import { useQuiz } from '../lib/context/QuizContext';
 import { databases } from '../lib/appwrite';
 
+
 import q from '../Styles/Quiz.module.css'; 
 import QuizCard from '../Components/QuizCard';
 import UserEmailInput from '../Components/UserEmailInput'; 
-
 
 
 const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
@@ -17,6 +17,10 @@ const COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_RESULTS_COLLECTION_ID;
 
 
 export default function EmailSignup() {
+
+
+    const {sound } = useUser(); 
+
 
     return (
         <section style={{color: 'white'}}>
@@ -29,38 +33,12 @@ export default function EmailSignup() {
                             questionText: "We'll send your detailed results to your email"
                         }}
                         // No audio for this page
-                        audio_URL=""
-                        // Optional: Add a results-related image if you have one
-                        currentIMG=""
+                        audio_URL={sound ? "https://dyslexiaquizapp.s3.eu-west-2.amazonaws.com/audio+doodles/receive+email-v1.mp3" : null}
+                        currentIMG="https://fra.cloud.appwrite.io/v1/storage/buckets/dood_gifs/files/682bb4430038bc15a801/view?project=test-domain&mode=admin"
                     />
                     
-                    {/* <form onSubmit={onSubmit} className={q.emailForm}>
-                        <div className={q.emailInputContainer}>
-                            <label htmlFor="email">Email</label>
-                            <input
-                                id="email"
-                                type="email"
-                                value={inputEmail}
-                                onChange={handleChange}
-                                required
-                                className={q.emailInput}
-                            />
-                        </div>
-
-                        <button 
-                            type="submit" 
-                            className={q.yesButton}
-                            style={{marginLeft: '0.5rem'}}
-                        >
-                            Next
-                        </button>
-                    </form> */}
-
                     <UserEmailInput/>
-                    
-
-
-
+                
                 </section>
 
             </main>

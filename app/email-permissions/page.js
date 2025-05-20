@@ -9,10 +9,11 @@ import QuizCard from '../Components/QuizCard';
 import {PermissionAnswer} from '../Components/PermissionAnswer'; 
 
 
+
 export default function EmailPermission() {
     const router = useRouter();
-    const { finalScore } = useQuiz();
-    const { name } = useUser();
+    const { finalScore,  } = useQuiz();
+    const { name, sound } = useUser();
 
     const handleYesClick = () => {
         router.push('/email-signup');
@@ -34,9 +35,11 @@ export default function EmailPermission() {
                             questionText: "We'll send your detailed results to your email"
                         }}
                         // No audio for this page
-                        audio_URL=""
+                        
+                        // audio_URL="https://dyslexiaquizapp.s3.eu-west-2.amazonaws.com/audio+doodles/send+email-v1.mp3"
+                        audio_URL={sound ? "https://dyslexiaquizapp.s3.eu-west-2.amazonaws.com/audio+doodles/send+email-v1.mp3" : null}
                         // Optional: Add a results-related image if you have one
-                        currentIMG=""
+                        currentIMG="https://fra.cloud.appwrite.io/v1/storage/buckets/dood_gifs/files/Dude_Email_Permission/view?project=test-domain&mode=admin"
                     />
                 </section>
 
